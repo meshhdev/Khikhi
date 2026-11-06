@@ -1,0 +1,78 @@
+/* ============ BASE: colours, reset, typography, layout, components ============
+   Colours and fonts: change them in :root at the top. */
+:root{--bg:#FBFBFA;--ink:#14161B;--mute:#4E535B;--line:#DCDDE0;--accent:#17402F;color-scheme:light;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-padding-top:calc(3.5rem + env(safe-area-inset-top,0px));scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.125rem/1.75 "Hanken Grotesk",system-ui,sans-serif}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.wrap{max-width:80rem;margin:0 auto;padding:0 clamp(1.25rem,6vw,5rem)}
+.serif{font-family:"Bodoni Moda",Georgia,serif;font-weight:400}
+.top{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 0;flex-wrap:wrap;gap:.5rem 1.5rem}
+.top a{text-decoration:none;color:var(--mute)}
+.top a:hover,.top a.home{color:var(--ink)}
+.top nav a{margin-left:1.5rem}
+.hero{padding:clamp(3rem,10vw,7rem) 0 clamp(4rem,9vw,7rem)}
+.hero-h{margin:0;font-weight:400}
+.mark{display:block;margin:0 0 0 -.05em;font-size:clamp(8rem,30vw,24rem);line-height:.82;letter-spacing:-.04em}
+.roles{margin:2.5rem 0 1rem;font-size:clamp(1.25rem,2.6vw,1.6rem);line-height:1.5;max-width:36rem}
+.hero p.sub{margin:0;color:var(--mute);max-width:34rem}
+section.s{padding:clamp(3.5rem,8vw,6.5rem) 0;border-top:1px solid var(--line)}
+.label{margin:0 0 2.5rem;color:var(--mute);font-weight:500}
+.big{margin:0;font-size:clamp(1.9rem,4.8vw,3.4rem);line-height:1.18;letter-spacing:-.02em;max-width:44rem}
+.body{max-width:40rem;margin:1.75rem 0 0}
+.body p{margin:0 0 1.1rem}
+.work{display:grid;gap:2.5rem}
+.list{display:flex;flex-wrap:wrap;gap:.25rem 1.5rem;align-self:start}
+.list button{all:unset;cursor:pointer;font-family:"Bodoni Moda",Georgia,serif;font-size:clamp(1.6rem,4.4vw,3rem);line-height:1.2;letter-spacing:-.02em;color:var(--mute);transition:color .25s}
+@media(hover:hover){.list button:hover{color:var(--ink)}}
+.list button[aria-pressed="true"]{color:var(--ink);font-style:italic}
+.list button:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.detail{animation:in .35s ease}
+@keyframes in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.lead{margin:0 0 1.25rem;font-size:clamp(1.6rem,3.2vw,2.3rem);line-height:1.2;letter-spacing:-.01em;max-width:32rem}
+.thought{margin:0 0 1.75rem;max-width:34rem}
+.poem{margin:0 0 2.25rem;padding:.25rem 0 .25rem 1.25rem;border-left:2px solid var(--accent);font:italic 400 clamp(1.15rem,2vw,1.4rem)/1.65 "Bodoni Moda",Georgia,serif;white-space:pre-line}
+.sm{margin:0 0 .5rem;color:var(--mute);font-weight:500;font-size:1rem}
+.proj{padding:1.1rem 0;border-top:1px solid var(--line)}
+.proj h3{margin:0;font:600 1.15rem/1.4 "Hanken Grotesk",sans-serif;display:flex;justify-content:space-between;gap:1rem}
+.proj h3 span{font-weight:400;color:var(--mute)}
+.proj h3 a.plink{text-decoration:none;border-bottom:1px solid var(--accent);align-self:flex-start;min-height:44px;display:inline-flex;align-items:center}
+.proj h3 a.plink:hover{color:var(--accent)}
+.proj p{margin:.25rem 0 0;color:var(--mute);max-width:34rem}
+.tools{margin:1.25rem 0 0;color:var(--mute)}
+.soon{margin:0;padding:1.1rem 0;border-top:1px solid var(--line);color:var(--mute)}
+.pr{display:grid;gap:2rem 4rem;margin:0;padding:0;list-style:none}
+.pr b{display:block;font:400 clamp(1.4rem,2.4vw,1.7rem)/1.25 "Bodoni Moda",Georgia,serif;margin-bottom:.35rem}
+.pr span{color:var(--mute);display:block;max-width:26rem}
+.long{margin:0;max-width:34rem;font:400 clamp(1.25rem,2.2vw,1.6rem)/1.8 "Bodoni Moda",Georgia,serif;white-space:pre-line}
+.long+.long{margin-top:1.5rem}
+.long.sig{width:fit-content;max-width:100%}
+.by{display:block;margin:.35rem 0 0;text-align:right;color:var(--mute);font:italic 400 1rem/1.4 "Bodoni Moda",Georgia,serif;letter-spacing:0}
+.by a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--accent)}
+.by a:hover{color:var(--accent)}
+.coda{margin:3rem 0 0;max-width:34rem;font-style:italic;font-size:clamp(1.05rem,1.8vw,1.25rem);line-height:1.9;color:var(--mute)}
+.coda::before{content:"";display:block;width:2.5rem;height:2px;background:var(--accent);margin-bottom:1.5rem}
+.close{margin:2.5rem 0 0;color:var(--mute);max-width:34rem}
+.close.sh{font-style:italic;font-size:clamp(1.15rem,2vw,1.4rem);line-height:1.9;color:var(--ink)}
+.about{display:grid;gap:2.5rem}
+.open{margin:0;padding:0;list-style:none}
+.open li{padding:.7rem 0;border-top:1px solid var(--line)}
+.reach{margin:2.5rem 0 0;max-width:40rem}
+.mail{display:inline-block;font-size:clamp(1.6rem,6.2vw,4.5rem);line-height:1.1;letter-spacing:-.03em;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:.15em;text-decoration-color:var(--accent);overflow-wrap:anywhere}
+.mail:hover{color:var(--accent)}
+.note{margin:1.5rem 0 0;color:var(--mute);max-width:32rem}
+.links{display:flex;flex-wrap:wrap;gap:.5rem 2rem;margin:2rem 0 0;padding:0;list-style:none}
+.links a{color:var(--mute);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:.1rem}
+.links a:hover{color:var(--ink);border-color:var(--accent)}
+footer{padding:2rem 0 3rem;color:var(--mute);border-top:1px solid var(--line);text-align:center}
+@media(min-width:56rem){.work{grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:5rem}.list{flex-direction:column;position:sticky;top:2rem;gap:.25rem}.pr{grid-template-columns:1fr 1fr}.about{grid-template-columns:1.4fr 1fr;gap:5rem}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+
+/* ---- Buttons ---- */
+.btn{display:inline-flex;align-items:center;min-height:48px;padding:0 1.6rem;border:1px solid var(--ink);border-radius:999px;text-decoration:none;font-weight:500;transition:background .25s,color .25s,border-color .25s}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+@media(hover:hover){.btn:hover{border-color:var(--accent);color:var(--accent)}.btn.primary:hover{background:transparent;color:var(--accent)}}
+@media(max-width:40rem){.btn{flex:1 1 auto;justify-content:center}}
+body{overflow-x:clip}

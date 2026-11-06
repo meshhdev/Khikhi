@@ -1,0 +1,52 @@
+/* ============ HEADER, FULL-SCREEN MENU, CREDITS PANEL ============ */
+.menu-btn{all:unset;cursor:pointer;box-sizing:border-box;min-height:44px;display:inline-flex;align-items:center;font-family:"Bodoni Moda",Georgia,serif;font-size:1.35rem;letter-spacing:-.01em;color:var(--ink);background:linear-gradient(var(--accent),var(--accent)) 0 calc(100% - .55rem)/0 2px no-repeat;transition:background-size .3s}
+.menu-btn:hover,.menu-btn:focus-visible,.menu-btn[aria-expanded="true"]{background-size:100% 2px}
+.menu-btn:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.menu{position:fixed;inset:0;z-index:50;background:var(--bg);color:var(--ink);overflow-y:auto;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);animation:in .3s ease}
+.menu[hidden]{display:none}
+.menu-top{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 0}
+.menu-mark{font-size:1.35rem}
+.menu>.wrap{min-height:100%;display:flex;flex-direction:column}
+.menu-nav{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:.4rem;padding:1.5rem 0 4rem}
+.menu-nav a{text-decoration:none;font-size:clamp(2.8rem,10vw,6.5rem);line-height:1.1;letter-spacing:-.03em;padding:.15em 0;color:var(--ink);background:linear-gradient(var(--accent),var(--accent)) 0 calc(100% - .1em)/0 3px no-repeat;transition:background-size .4s ease,color .25s}
+.menu-nav a:hover,.menu-nav a:focus-visible,.menu-nav a.on{background-size:100% 3px;color:var(--accent)}
+body.menu-open{overflow:hidden}
+@media(max-width:40rem){.menu-top{padding:1rem 0}}
+
+/* ---- Floating glass header ---- */
+.top{--gx:clamp(1.25rem,6vw,5rem);position:fixed;top:0;left:0;right:0;z-index:40;flex-wrap:nowrap;
+  padding:calc(.6rem + env(safe-area-inset-top,0px)) max(var(--gx),calc((100vw - 80rem)/2 + var(--gx))) .6rem;
+  background:transparent;border-bottom:1px solid transparent;
+  transition:transform .45s cubic-bezier(.2,.7,.2,1),opacity .35s ease,background-color .3s ease,border-color .3s ease,backdrop-filter .3s ease}
+.top a.home,.top .menu-btn{padding:.2rem 1.05rem;border-radius:999px;border:1px solid transparent;text-decoration:none;transition:background-color .3s ease,border-color .3s ease,color .25s ease,background-size .3s}
+.top .menu-btn{background-image:linear-gradient(var(--accent),var(--accent));background-repeat:no-repeat;background-origin:content-box;background-position:0 calc(100% - .3rem);background-size:0 2px}
+.top .menu-btn:hover,.top .menu-btn:focus-visible,.top .menu-btn:active{background-size:100% 2px}
+.top.glass a.home,.top.glass .menu-btn{background-color:color-mix(in srgb,var(--bg) 10%,transparent);-webkit-backdrop-filter:blur(16px) saturate(1.05);backdrop-filter:blur(16px) saturate(1.05);border-color:transparent}
+.top.away{transform:translateY(-100%);opacity:0;pointer-events:none}
+#top{padding-top:4.5rem}
+@media(max-width:40rem){.top{padding-top:calc(.35rem + env(safe-area-inset-top,0px));padding-bottom:.35rem}#top{padding-top:3.75rem}}
+@media(prefers-reduced-motion:reduce){.top{transition:none!important}}
+
+/* ---- Menu hint ---- */
+.hint{display:none}
+.menu .hint{margin:0;padding:.25rem 0 0;text-align:center}
+@media(max-width:55.99rem){.hint{display:block;margin:1.75rem 0 0;color:var(--mute);font:italic 400 1rem/1.5 "Bodoni Moda",Georgia,serif}}
+
+/* ---- Menu: Credits submenu ---- */
+.menu-credits{padding:0 0 3rem;text-align:center}
+.cred-btn{all:unset;cursor:pointer;box-sizing:border-box;min-height:44px;display:inline-flex;align-items:center;gap:.55rem;font-family:"Bodoni Moda",Georgia,serif;font-size:clamp(1.35rem,3vw,1.8rem);letter-spacing:-.01em;color:var(--mute);background:linear-gradient(var(--accent),var(--accent)) 0 calc(100% - .35rem)/0 2px no-repeat;transition:background-size .3s,color .25s}
+.cred-btn:hover,.cred-btn:focus-visible,.cred-btn[aria-expanded="true"]{background-size:100% 2px;color:var(--ink)}
+.cred-btn:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.cred-btn i{font-style:normal;display:inline-block;transition:transform .3s}
+.cred-btn[aria-expanded="true"] i{transform:rotate(45deg)}
+.cred-panel{max-width:34rem;margin:1.5rem auto 0;text-align:left;animation:in .3s ease}
+.cred-panel[hidden]{display:none}
+.cred-note{margin:0 0 1rem;color:var(--mute);font-size:1rem;line-height:1.6}
+.cred-list{margin:0;padding:0;list-style:none}
+.cred-list li{padding:1rem 0;border-top:1px solid var(--line)}
+.cred-name{display:block;font:400 1.4rem/1.25 "Bodoni Moda",Georgia,serif}
+.cred-what{display:block;margin-top:.15rem;color:var(--mute);font-size:1rem;line-height:1.5}
+.cred-meta{display:flex;flex-wrap:wrap;align-items:center;gap:0 1.25rem;margin-top:.35rem;font-size:.95rem;color:var(--mute)}
+.cred-meta a{min-height:44px;display:inline-flex;align-items:center;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--accent)}
+.cred-meta a:hover{color:var(--accent)}
+.cred-perm{font-style:italic}

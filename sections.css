@@ -1,0 +1,20 @@
+/* ============ SECTION BACKGROUNDS (tint / paper / fade colours / deep) ============ */
+section.s.tint,section.s.paper,section.s.deep{background:var(--sbg);color:var(--ink);box-shadow:0 0 0 100vmax var(--sbg);clip-path:inset(0 -100vmax)}
+section.s.tint{--sbg:#EDF2EC;--line:#CBD6CB}
+section.s.paper{background:none;box-shadow:none;clip-path:none;position:relative;isolation:isolate;border-top-color:transparent}
+section.s.paper::before{content:"";position:absolute;z-index:-1;top:calc(-1 * var(--up));bottom:var(--up);left:50%;width:100vw;transform:translateX(-50%);background:linear-gradient(to bottom,var(--bg) 0%,#FADFD8 35%,#FADFD8 100%)}
+section.s.paper{--pb:clamp(3.5rem,8vw,6.5rem);--up:2.5rem}
+.fz{position:relative;margin-top:3rem}
+.fz .coda{margin-top:0}
+.fz::before{content:"";position:absolute;z-index:-1;top:calc(-1 * var(--up));bottom:calc(var(--up) - var(--pb));left:50%;width:100vw;transform:translateX(-50%);background:linear-gradient(to bottom,#FADFD8 0%,var(--bg) 100%)}
+@media(max-width:40rem){section.s.paper{--pb:3rem}}
+/* ---- Test backgrounds (soft, fade into white) ---- */
+section.s.fade{position:relative;isolation:isolate;border-top-color:transparent}
+section.s.fade::before{content:"";position:absolute;z-index:-1;top:0;bottom:0;left:50%;width:100vw;transform:translateX(-50%);background:var(--g)}
+section.s.sage{--g:linear-gradient(to bottom,var(--bg) 0%,#E3EEE3 50%,var(--bg) 100%)}
+section.s.mist{--g:linear-gradient(165deg,var(--bg) 0%,#ECE7F6 50%,var(--bg) 100%)}
+section.s.sky{--g:linear-gradient(to bottom,var(--bg) 0%,#E1EDF7 50%,var(--bg) 100%)}
+section.s.teal{--g:linear-gradient(to bottom,var(--bg) 0%,#E4F2F3 50%,var(--bg) 100%)}
+section.s.butter{--g:radial-gradient(ellipse 65% 75% at 50% 50%,#FBEFCB 0%,var(--bg) 100%)}
+section.s.deep{--sbg:#17402F;--ink:#F3F1EA;--mute:#B7C5BC;--line:rgba(243,241,234,.2);--accent:#A8DBBE;--bg:#17402F}
+section.s.deep .btn.primary{color:#0F2B20}
